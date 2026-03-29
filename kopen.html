@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KoopjeIphone – Ik wil een iPhone kopen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #f5f7fb;
+      --surface: #ffffff;
+      --text: #111827;
+      --muted: rgba(17,24,39,0.65);
+      --blue: #0071e3;
+      --blue-hover: #0077ed;
+      --border: rgba(15,23,42,0.08);
+      --font: 'Inter', -apple-system, system-ui, sans-serif;
+    }
+    body {
+      background: radial-gradient(circle at top, #eef3ff 0, #f5f7fb 45%, #f5f7fb 100%);
+      color: var(--text);
+      font-family: var(--font);
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    nav {
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.6rem;
+    }
+    .nav-logo { font-size: 1rem; font-weight: 600; letter-spacing: -0.02em; }
+    .nav-logo span { color: #16a34a; }
+    .nav-back {
+      font-size: 0.8rem;
+      color: var(--blue);
+      text-decoration: none;
+    }
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.8rem 1.4rem 2.2rem;
+    }
+    .shell {
+      max-width: 720px;
+      width: 100%;
+      background: var(--surface);
+      border-radius: 22px;
+      border: 1px solid var(--border);
+      box-shadow: 0 22px 60px rgba(15,23,42,0.08);
+      padding: 2.3rem 2.2rem 2.1rem;
+    }
+    .eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    h1 {
+      font-size: clamp(1.8rem, 3vw, 2.3rem);
+      letter-spacing: -0.04em;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .intro {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 1.4rem;
+      max-width: 480px;
+      line-height: 1.6;
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      font-size: 0.85rem;
+    }
+    .form-group.full { grid-column: 1 / -1; }
+    label {
+      color: var(--muted);
+      font-weight: 500;
+      font-size: 0.8rem;
+    }
+    input, select, textarea {
+      border-radius: 10px;
+      border: 1px solid rgba(15,23,42,0.12);
+      padding: 0.55rem 0.9rem;
+      font-size: 0.9rem;
+      background: #f9fafb;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--blue);
+      background: #eef4ff;
+    }
+    textarea { resize: vertical; min-height: 70px; }
+
+    .euro-wrap { position: relative; }
+    .euro-wrap span {
+      position: absolute;
+      left: 0.8rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+    .euro-wrap input { padding-left: 1.6rem; }
+
+    .submit-btn {
+      margin-top: 0.9rem;
+      width: 100%;
+      border-radius: 10px;
+      border: none;
+      padding: 0.75rem 1rem;
+      background: var(--blue);
+      color: #fff;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .submit-btn:hover { background: var(--blue-hover); }
+
+    .note {
+      margin-top: 0.55rem;
+      font-size: 0.78rem;
+      color: rgba(17,24,39,0.55);
+      text-align: center;
+    }
+
+    .ref-price {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 0.1rem;
+      min-height: 1.1em;
+    }
+    .ref-price span {
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .success {
+      display: none;
+      text-align: center;
+      padding: 2rem 0.5rem 1.2rem;
+      font-size: 0.95rem;
+    }
+    .success.show { display: block; }
+
+    @media (max-width: 720px) {
+      nav { padding: 0 1.1rem; }
+      .shell { padding: 2rem 1.5rem 1.9rem; border-radius: 18px; }
+      .form-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Koopje<span>iPhone</span></div>
+  <a href="/" class="nav-back">← Terug naar begin</a>
+</nav>
+
+<main>
+  <div class="shell">
+    <p class="eyebrow">Aanvraag · Kopen</p>
+    <h1>Ik wil een iPhone kopen</h1>
+    <p class="intro">
+      Vul hieronder rustig in wat je zoekt. Ik vergelijk voor jou de opties
+      en kom terug met een voorstel dat past bij je budget.
+    </p>
+
+    <div id="koop-form-wrapper">
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Naam</label>
+          <input type="text" id="naam" placeholder="Jouw naam" />
+        </div>
+        <div class="form-group">
+          <label>E-mailadres</label>
+          <input type="email" id="email" placeholder="jij@email.nl" />
+        </div>
+        <div class="form-group">
+          <label>Telefoon (optioneel)</label>
+          <input type="tel" id="tel" placeholder="+31 6 ..." />
+        </div>
+        <div class="form-group">
+          <label>Voorkeur contact</label>
+          <select id="contact">
+            <option value="">Maakt niet uit</option>
+            <option>E-mail</option>
+            <option>WhatsApp</option>
+            <option>Bellen</option>
+          </select>
+        </div>
+
+        <div class="form-group full">
+          <label>Gewenst iPhone-model</label>
+          <select id="model">
+            <option value="">Kies een model...</option>
+            <option value="iphone-13">iPhone 13</option>
+            <option value="iphone-13-pro">iPhone 13 Pro</option>
+            <option value="iphone-14">iPhone 14</option>
+            <option value="iphone-14-pro">iPhone 14 Pro</option>
+            <option value="iphone-15">iPhone 15</option>
+            <option value="iphone-15-pro">iPhone 15 Pro</option>
+            <option value="iphone-16">iPhone 16</option>
+            <option value="iphone-16-pro">iPhone 16 Pro</option>
+            <option value="iphone-17">iPhone 17</option>
+            <option value="iphone-17-pro">iPhone 17 Pro</option>
+            <option value="onzeker">Weet ik niet precies</option>
+          </select>
+          <p class="ref-price" id="ref-price"></p>
+        </div>
+
+        <div class="form-group">
+          <label>Gewenste opslag</label>
+          <select id="opslag">
+            <option value="">Maakt niet uit</option>
+            <option>128 GB</option>
+            <option>256 GB</option>
+            <option>512 GB</option>
+            <option>1 TB</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Maximaal budget</label>
+          <div class="euro-wrap">
+            <span>€</span>
+            <input type="number" id="budget" placeholder="bijv. 450" min="100" max="3000" />
+          </div>
+        </div>
+
+        <div class="form-group full">
+          <label>Extra wensen (optioneel)</label>
+          <textarea id="wensen" placeholder="Kleur, nieuw/refurbished, garantie, inruil, enz."></textarea>
+        </div>
+      </div>
+
+      <button class="submit-btn" type="button" onclick="submitForm()">Verstuur mijn aanvraag</button>
+      <p class="note">Richtprijzen zijn indicatief. Je krijgt altijd een duidelijke uitleg bij mijn voorstel.</p>
+    </div>
+
+    <div class="success" id="success-msg">
+      <div style="font-size:2.3rem;margin-bottom:0.6rem;">✅</div>
+      <p>Bedankt voor je aanvraag. Ik neem binnen 48 uur contact met je op met een voorstel.</p>
+    </div>
+  </div>
+</main>
+
+<script>
+  // Indicatieve nieuwprijzen per model (aanpassen naar wens)
+  const REF_PRICES_NEW = {
+    "iphone-13":     699,
+    "iphone-13-pro": 899,
+    "iphone-14":     799,
+    "iphone-14-pro": 1049,
+    "iphone-15":     909,
+    "iphone-15-pro": 1199,
+    "iphone-16":     999,
+    "iphone-16-pro": 1299,
+    "iphone-17":     1099,
+    "iphone-17-pro": 1399
+  };
+
+  const modelSelect = document.getElementById('model');
+  const refPriceEl  = document.getElementById('ref-price');
+
+  modelSelect.addEventListener('change', function () {
+    const val = this.value;
+    if (!val || val === 'onzeker') {
+      refPriceEl.textContent = '';
+      return;
+    }
+    const price = REF_PRICES_NEW[val];
+    if (!price) {
+      refPriceEl.textContent = '';
+      return;
+    }
+    refPriceEl.innerHTML =
+      'Richtprijs nieuw in de winkel: <span>€ ' +
+      price +
+      ',-</span> (indicatie, per winkel verschillend).';
+  });
+
+  function submitForm() {
+    const naam   = document.getElementById('naam').value.trim();
+    const email  = document.getElementById('email').value.trim();
+    const model  = document.getElementById('model').value;
+    const budget = document.getElementById('budget').value.trim();
+
+    if (!naam || !email || !model || !budget) {
+      alert('Vul minimaal naam, e-mail, model en budget in.');
+      return;
+    }
+
+    // Hier kun je later een echte submit (fetch / Formspree) toevoegen.
+    document.getElementById('koop-form-wrapper').style.display = 'none';
+    document.getElementById('success-msg').classList.add('show');
+  }
+</script>
+
+</body>
+</html>
