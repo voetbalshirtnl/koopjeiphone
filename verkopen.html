@@ -41,6 +41,8 @@
       color: var(--blue);
       text-decoration: none;
     }
+    .nav-back:hover { text-decoration: underline; }
+
     main {
       flex: 1;
       display: flex;
@@ -167,7 +169,7 @@
 
 <nav>
   <div class="nav-logo">Koopje<span>iPhone</span></div>
-  <a href="/" class="nav-back">← Terug naar begin</a>
+  <a href="/koopjeiphone/" class="nav-back">← Terug naar begin</a>
 </nav>
 
 <main>
@@ -266,7 +268,6 @@
       return;
     }
 
-    // Heel simpele basisprijzen per model (aanpassen naar je eigen inkoopprijzen)
     let base = 0;
     const isHighBattery = battery >= 80;
 
@@ -279,7 +280,6 @@
     if (model === '15pro')  base = isHighBattery ? 350 : 310;
     if (model === '16')     base = isHighBattery ? 425 : 380;
 
-    // Staat-correctie
     if (staat === 'sporen') base = Math.round(base * 0.95);
     if (staat === 'schade') base = Math.round(base * 0.8);
 
@@ -306,7 +306,6 @@
       return;
     }
 
-    // Hier kun je later een echte submit (fetch / Formspree) toevoegen.
     document.getElementById('verkoop-form-wrapper').style.display = 'none';
     document.getElementById('success-msg').classList.add('show');
   }
