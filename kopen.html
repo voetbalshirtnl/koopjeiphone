@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
+    /* exact dezelfde stijl als bij verkopen.html */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
       --bg: #0f172a;
@@ -18,7 +19,6 @@
       --blue: #2563eb;
       --blue-soft: #dbeafe;
       --green: #16a34a;
-      --pink: #ec4899;
       --font: 'Inter', -apple-system, system-ui, sans-serif;
     }
     html { scroll-behavior: smooth; }
@@ -35,7 +35,6 @@
       display: flex;
       flex-direction: column;
     }
-
     nav {
       height: 64px;
       display: flex;
@@ -44,28 +43,11 @@
       padding: 0 1.8rem;
       color: #e5e7eb;
     }
-    .nav-left {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .nav-logo {
-      font-size: 1.05rem;
-      font-weight: 600;
-      letter-spacing: -0.03em;
-    }
+    .nav-left { display: flex; align-items: center; gap: 0.5rem; }
+    .nav-logo { font-size: 1.05rem; font-weight: 600; letter-spacing: -0.03em; }
     .nav-logo span { color: #38bdf8; }
-
-    .nav-tagline {
-      font-size: 0.75rem;
-      color: rgba(226,232,240,0.75);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 0.9rem;
-      font-size: 0.8rem;
-    }
+    .nav-tagline { font-size: 0.75rem; color: rgba(226,232,240,0.75); }
+    .nav-links { display: flex; gap: 0.9rem; font-size: 0.8rem; }
     .nav-links a {
       color: #e5e7eb;
       text-decoration: none;
@@ -75,10 +57,7 @@
       background: rgba(15,23,42,0.4);
       backdrop-filter: blur(16px);
     }
-    .nav-links a:hover {
-      background: rgba(37,99,235,0.6);
-      border-color: transparent;
-    }
+    .nav-links a:hover { background: rgba(37,99,235,0.6); border-color: transparent; }
 
     main {
       flex: 1;
@@ -104,7 +83,6 @@
       position: relative;
       overflow: hidden;
     }
-
     .hero::after {
       content: "";
       position: absolute;
@@ -144,12 +122,7 @@
         0 16px 40px rgba(15,23,42,0.22),
         0 0 0 8px rgba(255,255,255,0.9);
     }
-    .hero-logo-wrap img {
-      width: 50px;
-      height: 50px;
-      object-fit: contain;
-      display: block;
-    }
+    .hero-logo-wrap img { width: 50px; height: 50px; object-fit: contain; display: block; }
 
     .eyebrow {
       font-size: 0.74rem;
@@ -168,7 +141,7 @@
     }
     .hero-sub {
       font-size: 0.96rem;
-      color: var(--muted);
+      color: rgba(15,23,42,0.7);
       max-width: 520px;
       margin-bottom: 1.6rem;
       line-height: 1.7;
@@ -178,12 +151,11 @@
       background: rgba(255,255,255,0.96);
       border-radius: 20px;
       border: 1px solid rgba(148,163,184,0.35);
-      padding: 1.6rem 1.7rem 1.4rem;
+      padding: 1.7rem 1.8rem 1.5rem;
       box-shadow:
         0 18px 48px rgba(15,23,42,0.18),
         0 0 0 1px rgba(255,255,255,0.8) inset;
     }
-
     .form-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -199,25 +171,25 @@
     .form-group.full { grid-column: 1 / -1; }
 
     label {
-      color: var(--muted);
+      color: rgba(15,23,42,0.7);
       font-weight: 500;
       font-size: 0.8rem;
     }
     input, select, textarea {
-      border-radius: 10px;
+      border-radius: 12px;
       border: 1px solid rgba(15,23,42,0.12);
-      padding: 0.55rem 0.9rem;
-      font-size: 0.9rem;
+      padding: 0.8rem 0.95rem;
+      font-size: 0.96rem;
       background: #f9fafb;
-      color: var(--text);
+      color: #020617;
       outline: none;
       transition: border-color 0.15s, background 0.15s;
     }
     input:focus, select:focus, textarea:focus {
-      border-color: var(--blue);
+      border-color: #2563eb;
       background: #eef4ff;
     }
-    textarea { resize: vertical; min-height: 70px; }
+    textarea { resize: vertical; min-height: 100px; }
 
     .euro-wrap { position: relative; }
     .euro-wrap span {
@@ -225,7 +197,7 @@
       left: 0.8rem;
       top: 50%;
       transform: translateY(-50%);
-      color: var(--muted);
+      color: rgba(15,23,42,0.7);
       font-size: 0.8rem;
     }
     .euro-wrap input { padding-left: 1.6rem; }
@@ -233,9 +205,9 @@
     .submit-btn {
       margin-top: 0.9rem;
       width: 100%;
-      border-radius: 10px;
+      border-radius: 12px;
       border: none;
-      padding: 0.8rem 1rem;
+      padding: 0.85rem 1rem;
       background: linear-gradient(135deg, #2563eb, #4f46e5);
       color: #f9fafb;
       font-size: 0.9rem;
@@ -243,9 +215,7 @@
       cursor: pointer;
       box-shadow: 0 16px 38px rgba(37,99,235,0.55);
     }
-    .submit-btn:hover {
-      background: #1d4ed8;
-    }
+    .submit-btn:hover { background: #1d4ed8; }
 
     .note {
       margin-top: 0.55rem;
@@ -254,16 +224,13 @@
       text-align: center;
     }
 
-    .ref-price {
-      font-size: 0.78rem;
-      color: var(--muted);
-      margin-top: 0.1rem;
-      min-height: 1.1em;
+    .range {
+      font-size: 0.8rem;
+      color: rgba(15,23,42,0.7);
+      margin-top: 0.4rem;
+      min-height: 1.2em;
     }
-    .ref-price span {
-      font-weight: 500;
-      color: var(--text);
-    }
+    .range span { font-weight: 500; color: #020617; }
 
     .hero-side {
       background: radial-gradient(circle at top left, #eff6ff 0, #fef2ff 65%, #f9fafb 100%);
@@ -273,6 +240,7 @@
       box-shadow:
         0 16px 44px rgba(15,23,42,0.22),
         0 0 0 1px rgba(255,255,255,0.8) inset;
+      font-size: 0.83rem;
     }
     .pill {
       display: inline-flex;
@@ -293,11 +261,10 @@
     }
     .hero-side ul {
       list-style: none;
-      font-size: 0.82rem;
-      color: rgba(15,23,42,0.8);
       display: grid;
       gap: 0.35rem;
       margin-bottom: 0.85rem;
+      color: rgba(15,23,42,0.85);
     }
     .hero-side li::before {
       content: "• ";
@@ -410,7 +377,7 @@
                 <option value="iPhone 17 Pro">iPhone 17 Pro</option>
                 <option value="Onzeker">Weet ik nog niet precies</option>
               </select>
-              <p class="ref-price" id="ref-price"></p>
+              <p class="range" id="ref-price"></p>
             </div>
 
             <div class="form-group">
@@ -471,4 +438,38 @@
 
 <script>
   const REF_PRICES_NEW = {
-    "iP
+    "iPhone 13": 699,
+    "iPhone 13 Pro": 899,
+    "iPhone 14": 799,
+    "iPhone 14 Pro": 1049,
+    "iPhone 15": 909,
+    "iPhone 15 Pro": 1199,
+    "iPhone 16": 999,
+    "iPhone 16 Pro": 1299,
+    "iPhone 17": 1099,
+    "iPhone 17 Pro": 1399
+  };
+
+  const modelSelect = document.getElementById('model');
+  const refPriceEl  = document.getElementById('ref-price');
+
+  modelSelect.addEventListener('change', function () {
+    const label = this.value;
+    if (!label || label === 'Onzeker') {
+      refPriceEl.textContent = '';
+      return;
+    }
+    const price = REF_PRICES_NEW[label];
+    if (!price) {
+      refPriceEl.textContent = '';
+      return;
+    }
+    refPriceEl.innerHTML =
+      'Richtprijs nieuw in de winkel: <span>€ ' + price + ',-</span>';
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
