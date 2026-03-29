@@ -3,23 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KoopjeIphone – Ik wil mijn iPhone verkopen</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <title>KoopjeIphone – Goedkoop kopen of slim verkopen</title>
+  //fonts.googleapis.com" />
+  //fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --bg: #f5f7fb;
+      --bg: #f3f6ff;
       --surface: #ffffff;
-      --text: #111827;
-      --muted: rgba(17,24,39,0.65);
+      --text: #0f172a;
+      --muted: rgba(15,23,42,0.65);
       --blue: #0071e3;
-      --blue-hover: #0077ed;
+      --blue-hover: #0b75ff;
+      --green: #16a34a;
       --border: rgba(15,23,42,0.08);
       --font: 'Inter', -apple-system, system-ui, sans-serif;
     }
+    html { scroll-behavior: smooth; }
     body {
-      background: radial-gradient(circle at top, #eef3ff 0, #f5f7fb 45%, #f5f7fb 100%);
+      background:
+        radial-gradient(circle at top left, rgba(59,130,246,0.18) 0, transparent 55%),
+        radial-gradient(circle at bottom right, rgba(16,185,129,0.12) 0, transparent 55%),
+        var(--bg);
       color: var(--text);
       font-family: var(--font);
       -webkit-font-smoothing: antialiased;
@@ -27,271 +32,91 @@
       display: flex;
       flex-direction: column;
     }
+
     nav {
-      height: 52px;
+      height: 56px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 1.6rem;
+      padding: 0 1.8rem;
     }
-    .nav-logo { font-size: 1rem; font-weight: 600; letter-spacing: -0.02em; }
-    .nav-logo span { color: #16a34a; }
-    .nav-back {
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .nav-logo {
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+    .nav-logo span { color: var(--green); }
+    .nav-note {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.9rem;
       font-size: 0.8rem;
+    }
+    .nav-links a {
       color: var(--blue);
       text-decoration: none;
     }
-    .nav-back:hover { text-decoration: underline; }
+    .nav-links a:hover {
+      text-decoration: underline;
+    }
 
     main {
       flex: 1;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 1.8rem 1.4rem 2.2rem;
+      padding: 1.5rem;
     }
-    .shell {
-      max-width: 720px;
+    .hero {
+      max-width: 780px;
       width: 100%;
-      background: var(--surface);
-      border-radius: 22px;
-      border: 1px solid var(--border);
-      box-shadow: 0 22px 60px rgba(15,23,42,0.08);
-      padding: 2.3rem 2.2rem 2.1rem;
-    }
-    .eyebrow {
-      font-size: 0.7rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--blue);
-      margin-bottom: 0.5rem;
-      font-weight: 600;
-    }
-    h1 {
-      font-size: clamp(1.8rem, 3vw, 2.3rem);
-      letter-spacing: -0.04em;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-    .intro {
-      font-size: 0.95rem;
-      color: var(--muted);
-      margin-bottom: 1.4rem;
-      max-width: 480px;
-      line-height: 1.6;
-    }
-    .form-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.8rem;
-    }
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-      font-size: 0.85rem;
-    }
-    .form-group.full { grid-column: 1 / -1; }
-    label {
-      color: var(--muted);
-      font-weight: 500;
-      font-size: 0.8rem;
-    }
-    input, select, textarea {
-      border-radius: 10px;
-      border: 1px solid rgba(15,23,42,0.12);
-      padding: 0.55rem 0.9rem;
-      font-size: 0.9rem;
-      background: #f9fafb;
-      color: var(--text);
-      outline: none;
-      transition: border-color 0.15s, background 0.15s;
-    }
-    input:focus, select:focus, textarea:focus {
-      border-color: var(--blue);
-      background: #eef4ff;
-    }
-    textarea { resize: vertical; min-height: 70px; }
-
-    .submit-btn {
-      margin-top: 0.9rem;
-      width: 100%;
-      border-radius: 10px;
-      border: none;
-      padding: 0.75rem 1rem;
-      background: var(--blue);
-      color: #fff;
-      font-size: 0.9rem;
-      font-weight: 600;
-      cursor: pointer;
-    }
-    .submit-btn:hover { background: var(--blue-hover); }
-
-    .note {
-      margin-top: 0.55rem;
-      font-size: 0.78rem;
-      color: rgba(17,24,39,0.55);
+      background: linear-gradient(135deg, rgba(255,255,255,0.98), rgba(248,250,252,0.98));
+      border-radius: 28px;
+      border: 1px solid rgba(148,163,184,0.25);
+      box-shadow:
+        0 24px 80px rgba(15,23,42,0.18),
+        0 0 0 1px rgba(255,255,255,0.6) inset;
+      padding: 2.4rem 2.6rem 2.3rem;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top center, rgba(59,130,246,0.12) 0, transparent 55%);
+      opacity: 0.8;
+      pointer-events: none;
+    }
+    .hero-inner { position: relative; z-index: 1; }
+
+    .hero-logo-wrap {
+      width: 72px;
+      height: 72px;
+      border-radius: 999px;
+      margin: 0 auto 1rem;
+      background: #eef2ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(148,163,184,0.35);
+      box-shadow: 0 12px 30px rgba(15,23,42,0.12);
+    }
+    .hero-logo-wrap img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      display: block;
     }
 
-    .range {
-      font-size: 0.8rem;
-      color: var(--muted);
-      margin-top: 0.4rem;
-      min-height: 1.2em;
-    }
-    .range span {
-      font-weight: 500;
-      color: var(--text);
-    }
-
-    .hint {
-      font-size: 0.78rem;
-      color: var(--muted);
-    }
-
-    @media (max-width: 720px) {
-      nav { padding: 0 1.1rem; }
-      .shell { padding: 2rem 1.5rem 1.9rem; border-radius: 18px; }
-      .form-grid { grid-template-columns: 1fr; }
-    }
-  </style>
-</head>
-<body>
-
-<nav>
-  <div class="nav-logo">Koopje<span>iPhone</span></div>
-  <a href="/koopjeiphone/" class="nav-back">← Terug naar begin</a>
-</nav>
-
-<main>
-  <div class="shell">
-    <p class="eyebrow">Aanvraag · Verkopen</p>
-    <h1>Ik wil mijn iPhone verkopen</h1>
-    <p class="intro">
-      Laat hier kort weten welk toestel je hebt en in welke staat hij is.
-      Je krijgt van mij een eerlijke richtprijs en daarna stemmen we samen verder af.
-    </p>
-
-    <!-- Formspree formulier (zelfde endpoint als kopen) -->
-    <form
-      id="verkoop-form"
-      class="form-grid"
-      action="https://formspree.io/f/xnjopzgw"
-      method="POST"
-    >
-      <div class="form-group">
-        <label>Naam</label>
-        <input type="text" name="naam" placeholder="Jouw naam" required />
-      </div>
-      <div class="form-group">
-        <label>E-mailadres</label>
-        <input type="email" name="email" placeholder="jij@email.nl" required />
-      </div>
-      <div class="form-group">
-        <label>Telefoon (optioneel)</label>
-        <input type="tel" name="telefoon" placeholder="+31 6 ..." />
-      </div>
-      <div class="form-group">
-        <label>Model</label>
-        <select name="model" id="model" required>
-          <option value="">Kies model...</option>
-          <option>iPhone 13</option>
-          <option>iPhone 13 Pro</option>
-          <option>iPhone 14</option>
-          <option>iPhone 14 Pro</option>
-          <option>iPhone 14 Pro Max</option>
-          <option>iPhone 15</option>
-          <option>iPhone 15 Pro</option>
-          <option>iPhone 16</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label>Opslag</label>
-        <select name="opslag">
-          <option>128 GB</option>
-          <option>256 GB</option>
-          <option>512 GB</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label>Algemene staat</label>
-        <select name="staat" id="staat">
-          <option value="netjes">Alles netjes</option>
-          <option value="sporen">Lichte gebruikssporen</option>
-          <option value="schade">Schade / barst</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label>Batterijconditie (%)</label>
-        <input type="number" name="battery" id="battery" placeholder="bijv. 84" min="60" max="100" />
-        <p class="hint">Instellingen › Batterij › Batterijconditie.</p>
-      </div>
-
-      <div class="form-group full">
-        <label>Opmerkingen (optioneel)</label>
-        <textarea name="opmerkingen" placeholder="Bijv. factuur aanwezig, accessoires, foto’s stuur ik via WhatsApp, enz."></textarea>
-      </div>
-
-      <div class="form-group full">
-        <label>Indicatie inkoopprijs</label>
-        <p class="range" id="range-text">Vul model, staat en batterijconditie in voor een richtprijs.</p>
-      </div>
-
-      <input type="hidden" name="_subject" value="Nieuwe verkoop-aanvraag via KoopjeIphone" />
-      <input type="hidden" name="_language" value="nl" />
-
-      <div class="form-group full">
-        <button class="submit-btn" type="submit">Verstuur mijn aanvraag</button>
-        <p class="note">De definitieve prijs spreek ik altijd met je af na foto’s en een korte controle.</p>
-      </div>
-    </form>
-  </div>
-</main>
-
-<script>
-  function calcIndicatie() {
-    const model = document.getElementById('model').value;
-    const staat = document.getElementById('staat').value;
-    const battery = parseInt(document.getElementById('battery').value, 10);
-    const rangeEl = document.getElementById('range-text');
-
-    if (!model || !staat || !battery || battery < 60 || battery > 100) {
-      rangeEl.textContent = 'Vul model, staat en een geldige batterijconditie (60–100%) in voor een richtprijs.';
-      return;
-    }
-
-    let base = 0;
-    const isHighBattery = battery >= 80;
-
-    if (model === 'iPhone 13')     base = isHighBattery ? 150 : 120;
-    if (model === 'iPhone 13 Pro') base = isHighBattery ? 200 : 170;
-    if (model === 'iPhone 14')     base = isHighBattery ? 200 : 180;
-    if (model === 'iPhone 14 Pro') base = isHighBattery ? 250 : 220;
-    if (model === 'iPhone 14 Pro Max') base = isHighBattery ? 275 : 240;
-    if (model === 'iPhone 15')     base = isHighBattery ? 300 : 260;
-    if (model === 'iPhone 15 Pro') base = isHighBattery ? 350 : 310;
-    if (model === 'iPhone 16')     base = isHighBattery ? 425 : 380;
-
-    if (staat === 'sporen') base = Math.round(base * 0.95);
-    if (staat === 'schade') base = Math.round(base * 0.8);
-
-    const low  = base - 10;
-    const high = base + 10;
-
-    rangeEl.innerHTML = 'Richtprijs inkoop: <span>€ ' + low + ' – € ' + high +
-      '</span> (indicatie, definitieve prijs na foto’s).';
-  }
-
-  ['model','staat','battery'].forEach(id => {
-    const el = document.getElementById(id);
-    el.addEventListener('change', calcIndicatie);
-    el.addEventListener('input', calcIndicatie);
-  });
-</script>
-
-</body>
-</html>
+    .eyebrow {
