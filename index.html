@@ -106,7 +106,12 @@
       border: 1px solid rgba(148,163,184,0.35);
       box-shadow: 0 12px 30px rgba(15,23,42,0.12);
     }
-    .hero-logo-wrap span { font-size: 32px; }
+    .hero-logo-wrap img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      display: block;
+    }
 
     .eyebrow {
       font-size: 0.72rem;
@@ -184,6 +189,61 @@
       color: rgba(17,24,39,0.55);
     }
 
-    @m
+    @media (max-width: 720px) {
+      nav { padding: 0 1.1rem; }
+      .hero {
+        padding: 2.1rem 1.4rem 2rem;
+        border-radius: 22px;
+      }
+      .hero-actions { gap: 0.7rem; }
+      .btn { min-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-left">
+    <div class="nav-logo">Verkoopje<span>iPhone</span></div>
+  </div>
+  <div class="nav-links">
+    <a href="https://wa.me/31630576584" target="_blank" rel="noopener">WhatsApp</a>
+    <a href="https://www.instagram.com/verkoopjeiphone" target="_blank" rel="noopener">Instagram</a>
+  </div>
+</nav>
+
+<main>
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-logo-wrap">
+        <img src="logo-verkoopjeiphone.png" alt="Logo VerkoopjeiPhone" />
+      </div>
+      <div class="eyebrow">In- en verkoop van iPhones</div>
+      <h1>Verkoop of koop uw iPhone zonder zorgen</h1>
+      <p class="hero-sub">
+        Ontvang snel een marktconform voorstel voor uw huidige iPhone of kies een zorgvuldig gecontroleerd toestel om naar over te stappen.
+        U heeft direct persoonlijk contact, duidelijke informatie vooraf en transparante voorwaarden.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="verkopen.html">iPhone verkopen</a>
+        <a class="btn btn-secondary" href="kopen.html">iPhone kopen</a>
+      </div>
+
+      <p class="hero-meta">
+        Regio Randstad en omgeving · Persoonlijke begeleiding bij inkoop en verkoop · Afspraak op een goed bereikbare, openbare locatie
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  © <span id="year"></span> VerkoopjeiPhone. Alle rechten voorbehouden.
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
 </body>
 </html>
