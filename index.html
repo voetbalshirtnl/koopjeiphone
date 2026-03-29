@@ -3,216 +3,215 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KoopjeIphone – Actuele iPhone Prijzen Nederland</title>
+  <title>KoopjeIphone – Hulp bij jouw iPhone-aankoop</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --bg: #f5f7fb; --bg2: #e9edf7; --bg3: #dde4f4;
-      --surface: #ffffff; --surface2: #f0f3fc;
-      --white: #111827; --muted: rgba(17,24,39,0.65);
-      --blue: #0071e3; --blue-hover: #0077ed;
-      --green: #16a34a; --red: #cc0000;
+      --bg: #f5f7fb;
+      --surface: #ffffff;
       --border: rgba(15,23,42,0.08);
-      --font: 'Inter', -apple-system, sans-serif;
+      --text: #111827;
+      --muted: rgba(17,24,39,0.65);
+      --blue: #0071e3;
+      --blue-hover: #0077ed;
+      --green: #16a34a;
+      --font: 'Inter', -apple-system, system-ui, sans-serif;
     }
     html { scroll-behavior: smooth; }
-    body { background: var(--bg); color: var(--white); font-family: var(--font); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
 
     /* NAV */
     nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 2rem; height: 52px;
-      background: rgba(245,247,251,0.92);
-      backdrop-filter: saturate(180%) blur(20px);
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+      height: 52px;
+      background: rgba(245,247,251,0.96);
+      backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
     }
-    .nav-logo { font-size: 1.05rem; font-weight: 600; }
+    .nav-logo { font-size: 1rem; font-weight: 600; }
     .nav-logo span { color: var(--green); }
-    .nav-links { display: flex; list-style: none; }
-    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.8rem; padding: 0 0.9rem; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--blue); }
-    .nav-cta { background: var(--blue); color: #fff; font-size: 0.8rem; font-weight: 500; padding: 0.42rem 1.1rem; border-radius: 980px; text-decoration: none; }
+    .nav-cta {
+      background: var(--blue);
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 0.35rem 1rem;
+      border-radius: 999px;
+    }
     .nav-cta:hover { background: var(--blue-hover); }
 
-    /* HERO */
-    .hero { min-height: 60vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 6rem 2rem 3rem; position: relative; overflow: hidden; }
-    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,113,227,0.1) 0%, transparent 65%); pointer-events: none; }
-    .hero-eyebrow { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); margin-bottom: 1.2rem; opacity: 0; animation: fadeUp 0.7s 0.1s ease forwards; }
-    .hero h1 { font-size: clamp(2.4rem, 6vw, 4.5rem); font-weight: 700; letter-spacing: -0.04em; line-height: 1.06; max-width: 700px; margin-bottom: 1.2rem; opacity: 0; animation: fadeUp 0.7s 0.2s ease forwards; }
-    .hero h1 .green { color: var(--green); }
-    .hero-sub { font-size: clamp(0.95rem, 2vw, 1.15rem); font-weight: 300; color: var(--muted); max-width: 480px; margin-bottom: 2rem; line-height: 1.7; opacity: 0; animation: fadeUp 0.7s 0.3s ease forwards; }
-    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; opacity: 0; animation: fadeUp 0.7s 0.4s ease forwards; }
-    .btn-blue { background: var(--blue); color: #fff; font-size: 1rem; font-weight: 500; padding: 0.8rem 1.8rem; border-radius: 980px; text-decoration: none; transition: background 0.2s, transform 0.15s; }
-    .btn-blue:hover { background: var(--blue-hover); transform: scale(1.02); }
-    .btn-ghost { background: transparent; color: var(--blue); font-size: 1rem; font-weight: 500; padding: 0.8rem 1.8rem; border-radius: 980px; text-decoration: none; border: 1px solid rgba(0,113,227,0.35); transition: border-color 0.2s; }
-    .btn-ghost:hover { border-color: var(--blue); }
+    /* LAYOUT */
+    main { padding: 4.5rem 1.5rem 3rem; }
+    .container { max-width: 960px; margin: 0 auto; }
+    .grid {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 2.5rem;
+      align-items: flex-start;
+    }
 
-    /* STATS */
-    .stats-bar { display: flex; justify-content: center; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--bg2); }
-    .stat-item { flex: 1; max-width: 220px; padding: 1.8rem 1.5rem; text-align: center; border-right: 1px solid var(--border); }
-    .stat-item:last-child { border-right: none; }
-    .stat-num { font-size: 1.8rem; font-weight: 700; letter-spacing: -0.04em; }
-    .stat-label { font-size: 0.78rem; color: var(--muted); margin-top: 0.2rem; }
+    /* HERO / INTRO */
+    .eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+    h1 {
+      font-size: clamp(1.9rem, 3vw, 2.4rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.6rem;
+    }
+    .hero-sub {
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 420px;
+      line-height: 1.6;
+      margin-bottom: 1.4rem;
+    }
+    .mini-list {
+      list-style: none;
+      font-size: 0.9rem;
+      color: var(--muted);
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      margin-top: 0.4rem;
+    }
+    .mini-list li::before {
+      content: "• ";
+      color: var(--green);
+      font-weight: 700;
+      margin-right: 0.15rem;
+    }
 
-    /* SECTIONS */
-    section { padding: 5rem 2rem; }
-    .container { max-width: 1080px; margin: 0 auto; }
-    .container-sm { max-width: 680px; margin: 0 auto; }
-    .eyebrow { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.8rem; }
-    .section-title { font-size: clamp(1.7rem, 4vw, 2.8rem); font-weight: 700; letter-spacing: -0.04em; line-height: 1.08; margin-bottom: 1rem; }
-    .section-body { font-size: 1rem; font-weight: 300; color: var(--muted); max-width: 520px; line-height: 1.7; }
-
-    /* ===== PRIJZEN SECTIE ===== */
-    .prijzen-section { background: var(--bg); border-top: 1px solid var(--border); }
-    .prijzen-header { text-align: center; margin-bottom: 2rem; }
-    .prijzen-header .section-body { margin: 0 auto 1.5rem; }
-
-    .update-note {
-      display: inline-flex; align-items: center; gap: 0.4rem;
-      background: #f0fff4; border: 1px solid rgba(22,163,74,0.25);
-      border-radius: 980px; padding: 0.3rem 0.9rem;
-      font-size: 0.72rem; font-weight: 500; color: var(--green);
+    /* FORM */
+    .card {
+      background: var(--surface);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 1.6rem 1.7rem;
+      box-shadow: 0 6px 20px rgba(15,23,42,0.04);
+    }
+    .card h2 {
+      font-size: 1.15rem;
+      margin-bottom: 0.4rem;
+    }
+    .card-sub {
+      font-size: 0.85rem;
+      color: var(--muted);
       margin-bottom: 1.2rem;
     }
-    .update-note::before { content: '●'; font-size: 0.5rem; }
-
-    /* Tabs */
-    .model-tabs { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin-bottom: 2.5rem; }
-    .model-tab { background: var(--surface); border: 1px solid var(--border); color: var(--muted); font-family: var(--font); font-size: 0.8rem; font-weight: 500; padding: 0.45rem 1.1rem; border-radius: 980px; cursor: pointer; transition: all 0.2s; }
-    .model-tab:hover { border-color: var(--blue); color: var(--blue); }
-    .model-tab.active { background: var(--blue); border-color: var(--blue); color: #fff; }
-
-    /* Cards grid */
-    .models-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.2rem; }
-    .model-card { background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 1.5rem; transition: box-shadow 0.2s, transform 0.2s; display: none; }
-    .model-card.visible { display: block; }
-    .model-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.09); transform: translateY(-3px); }
-
-    .card-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1rem; }
-    .model-name { font-size: 1.05rem; font-weight: 700; letter-spacing: -0.02em; }
-    .model-badge { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.22rem 0.65rem; border-radius: 980px; }
-    .badge-new { background: rgba(22,163,74,0.12); color: var(--green); }
-    .badge-popular { background: rgba(0,113,227,0.1); color: var(--blue); }
-    .badge-deal { background: rgba(234,88,12,0.1); color: #ea580c; }
-    .badge-refurb { background: rgba(107,114,128,0.12); color: #6b7280; }
-
-    /* Prijs tabs binnen card */
-    .storage-tabs { display: flex; gap: 0.4rem; margin-bottom: 1rem; flex-wrap: wrap; }
-    .stab { background: var(--bg); border: 1px solid var(--border); color: var(--muted); font-family: var(--font); font-size: 0.75rem; font-weight: 500; padding: 0.28rem 0.65rem; border-radius: 6px; cursor: pointer; transition: all 0.15s; }
-    .stab:hover, .stab.active { background: var(--blue); border-color: var(--blue); color: #fff; }
-
-    /* Prijs weergave */
-    .price-block { background: var(--bg); border-radius: 12px; padding: 1rem 1.2rem; margin-bottom: 1rem; }
-    .price-vanaf { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.2rem; }
-    .price-main { font-size: 2rem; font-weight: 700; letter-spacing: -0.04em; color: var(--white); }
-    .price-main sup { font-size: 1rem; font-weight: 600; vertical-align: super; }
-    .price-sub { font-size: 0.75rem; color: var(--muted); margin-top: 0.2rem; }
-
-    .btn-tweakers {
-      display: flex; align-items: center; justify-content: center; gap: 0.5rem;
-      width: 100%; background: var(--red); color: #fff;
-      font-family: var(--font); font-size: 0.82rem; font-weight: 600;
-      padding: 0.65rem 1rem; border-radius: 10px; text-decoration: none;
-      transition: background 0.2s, transform 0.15s; margin-top: 0.3rem;
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
     }
-    .btn-tweakers:hover { background: #aa0000; transform: scale(1.01); }
-    .btn-tweakers svg { width: 13px; height: 13px; flex-shrink: 0; }
-    .card-note { font-size: 0.7rem; color: var(--muted); text-align: center; margin-top: 0.5rem; }
-
-    /* Bijwerk info */
-    .edit-tip { background: #fffbeb; border: 1px solid rgba(217,119,6,0.25); border-radius: 12px; padding: 1rem 1.2rem; margin-bottom: 2.5rem; text-align: center; }
-    .edit-tip strong { color: #92400e; font-size: 0.82rem; }
-    .edit-tip p { font-size: 0.78rem; color: #92400e; margin-top: 0.2rem; opacity: 0.8; }
-
-    /* HOE WERKT HET */
-    .how-section { background: var(--bg2); }
-    .how-header { text-align: center; margin-bottom: 3rem; }
-    .how-header .section-body { margin: 0 auto; }
-    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border-radius: 18px; overflow: hidden; }
-    .step { background: var(--surface); padding: 2.2rem 1.8rem; transition: background 0.2s; }
-    .step:hover { background: var(--surface2); }
-    .step-icon { width: 44px; height: 44px; background: rgba(0,113,227,0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 1.2rem; }
-    .step h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; }
-    .step p { font-size: 0.875rem; color: var(--muted); line-height: 1.65; }
-
-    /* OVER MIJ */
-    .about-section { background: var(--bg3); }
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-    .about-visual { aspect-ratio: 1; max-width: 320px; border-radius: 24px; background: var(--surface); display: flex; align-items: center; justify-content: center; font-size: 5rem; border: 1px solid var(--border); }
-    .about-text .section-body { max-width: 100%; margin-bottom: 1.8rem; }
-    .trust-list { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; }
-    .trust-list li { display: flex; align-items: center; gap: 0.8rem; font-size: 0.88rem; color: var(--muted); }
-    .trust-list li::before { content: '✓'; display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; background: rgba(22,163,74,0.12); color: var(--green); border-radius: 50%; font-size: 0.7rem; font-weight: 700; flex-shrink: 0; }
-
-    /* FORMULIER */
-    .form-section { background: var(--bg); }
-    .form-card { background: var(--surface); border-radius: 20px; border: 1px solid var(--border); padding: 2.5rem; }
-    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      font-size: 0.85rem;
+    }
     .form-group.full { grid-column: 1 / -1; }
-    label { font-size: 0.78rem; font-weight: 500; color: var(--muted); }
-    input, select, textarea { background: #f9fafb; border: 1px solid rgba(15,23,42,0.12); color: var(--white); font-family: var(--font); font-size: 0.9rem; padding: 0.75rem 1rem; border-radius: 10px; outline: none; transition: border-color 0.2s; width: 100%; appearance: none; }
-    input:focus, select:focus, textarea:focus { border-color: var(--blue); background: #eef4ff; }
-    input::placeholder { color: rgba(15,23,42,0.35); }
-    select option { background: #fff; color: #111827; }
-    textarea { resize: vertical; min-height: 80px; }
+    label { color: var(--muted); font-weight: 500; font-size: 0.8rem; }
+    input, select, textarea {
+      border-radius: 10px;
+      border: 1px solid rgba(15,23,42,0.12);
+      padding: 0.55rem 0.9rem;
+      font-size: 0.9rem;
+      background: #f9fafb;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--blue);
+      background: #eef4ff;
+    }
+    textarea { resize: vertical; min-height: 70px; }
+
     .euro-wrap { position: relative; }
-    .euro-wrap span { position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--muted); pointer-events: none; }
-    .euro-wrap input { padding-left: 1.8rem; }
-    .submit-btn { width: 100%; background: var(--blue); color: #fff; font-family: var(--font); font-weight: 600; font-size: 0.9rem; padding: 0.85rem; border: none; border-radius: 10px; cursor: pointer; margin-top: 0.8rem; transition: background 0.2s; }
+    .euro-wrap span {
+      position: absolute;
+      left: 0.8rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+    .euro-wrap input { padding-left: 1.6rem; }
+
+    .submit-btn {
+      width: 100%;
+      margin-top: 0.8rem;
+      border: none;
+      border-radius: 10px;
+      padding: 0.7rem 1rem;
+      background: var(--blue);
+      color: #fff;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
     .submit-btn:hover { background: var(--blue-hover); }
-    .form-note { text-align: center; font-size: 0.75rem; color: rgba(15,23,42,0.45); margin-top: 0.7rem; }
-    .success-msg { display: none; text-align: center; padding: 3rem 2rem; }
+    .form-note {
+      font-size: 0.75rem;
+      color: rgba(15,23,42,0.55);
+      margin-top: 0.55rem;
+      text-align: center;
+    }
+
+    .success-msg {
+      text-align: center;
+      font-size: 0.95rem;
+      display: none;
+      padding: 2rem 1rem 1.2rem;
+    }
     .success-msg.show { display: block; }
 
-    /* INRUIL */
-    .trade-section { background: var(--bg2); }
-    .trade-card { background: var(--surface); border-radius: 20px; border: 1px solid var(--border); padding: 2.5rem; }
-    .condition-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem; margin-top: 0.5rem; }
-    .cond-btn { background: #f9fafb; border: 1px solid rgba(15,23,42,0.12); color: var(--muted); font-family: var(--font); font-size: 0.8rem; font-weight: 500; padding: 0.6rem 0.3rem; border-radius: 10px; cursor: pointer; text-align: center; transition: all 0.2s; }
-    .cond-btn:hover { background: var(--blue); border-color: var(--blue); color: #fff; }
-    .cond-btn.active { background: rgba(0,113,227,0.1); border-color: var(--blue); color: var(--blue); }
-    .value-result { display: none; margin-top: 1.5rem; padding: 1.5rem 2rem; background: #eef4ff; border: 1px solid rgba(0,113,227,0.2); border-radius: 14px; }
-    .value-result.show { display: block; }
-    .value-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.3rem; }
-    .value-num { font-size: 2rem; font-weight: 700; letter-spacing: -0.04em; }
-    .value-sub { font-size: 0.78rem; color: var(--muted); margin-top: 0.4rem; }
-
-    /* CONTACT */
-    .contact-section { background: var(--bg); }
-    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-    .contact-item { display: flex; align-items: center; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--border); }
-    .c-icon { width: 38px; height: 38px; background: var(--surface); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; border: 1px solid var(--border); }
-    .contact-item a { color: var(--blue); text-decoration: none; font-size: 0.9rem; }
-    .contact-form-card { background: var(--surface); border-radius: 20px; border: 1px solid var(--border); padding: 2.2rem; }
-
-    /* FOOTER */
-    footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 2.5rem 2rem; text-align: center; }
-    .footer-logo { font-size: 1rem; font-weight: 600; margin-bottom: 0.4rem; }
-    .footer-logo span { color: var(--green); }
-    footer p { font-size: 0.75rem; color: rgba(15,23,42,0.45); }
-    footer a { color: var(--blue); text-decoration: none; font-size: 0.78rem; }
-
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
-    @media (max-width: 900px) {
-      .about-grid { grid-template-columns: 1fr; }
-      .about-visual { display: none; }
-      .form-grid { grid-template-columns: 1fr; }
-      .contact-grid { grid-template-columns: 1fr; }
+    /* SUBTIELE REFERENTIEPRIJS */
+    .ref-price {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 0.1rem;
+      min-height: 1.1em;
     }
-    @media (max-width: 768px) {
-      nav { padding: 0 1.2rem; }
-      .nav-links { display: none; }
-      section { padding: 4rem 1.2rem; }
-      .steps { grid-template-columns: 1fr; }
-      .stats-bar { flex-wrap: wrap; }
-      .stat-item { border-right: none; border-bottom: 1px solid var(--border); max-width: 100%; }
-      .models-grid { grid-template-columns: 1fr; }
-      .form-card, .trade-card, .contact-form-card { padding: 1.5rem; }
+    .ref-price span {
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    /* EXTRA TEKST */
+    .small-block {
+      margin-top: 2rem;
+      font-size: 0.84rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 800px) {
+      main { padding: 4rem 1.1rem 2.5rem; }
+      .grid { grid-template-columns: 1fr; gap: 1.6rem; }
     }
   </style>
 </head>
@@ -220,417 +219,168 @@
 
 <nav>
   <div class="nav-logo">Koopje<span>iPhone</span></div>
-  <ul class="nav-links">
-    <li><a href="#prijzen">Actuele Prijzen</a></li>
-    <li><a href="#hoe-werkt-het">Hoe werkt het</a></li>
-    <li><a href="#inruil">Inruilwaarde</a></li>
-    <li><a href="#over-mij">Over mij</a></li>
-    <li><a href="#aanvraag">Aanvraag</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <a href="#aanvraag" class="nav-cta">Start aanvraag</a>
+  <a href="#aanvraag" class="nav-cta">Aanvraag doen</a>
 </nav>
 
-<section class="hero">
-  <p class="hero-eyebrow">Persoonlijke iPhone-zoekdienst · Nederland</p>
-  <h1>Jouw <span class="green">iPhone</span>,<br>voor de beste prijs.</h1>
-  <p class="hero-sub">Bekijk direct actuele marktprijzen per model. Wil je dat ik een deal voor jou regel? Stuur een aanvraag.</p>
-  <div class="hero-actions">
-    <a href="#prijzen" class="btn-blue">Bekijk actuele prijzen</a>
-    <a href="#aanvraag" class="btn-ghost">Aanvraag doen</a>
-  </div>
-</section>
-
-<div class="stats-bar">
-  <div class="stat-item"><div class="stat-num">€100+</div><div class="stat-label">Gemiddelde besparing</div></div>
-  <div class="stat-item"><div class="stat-num">48u</div><div class="stat-label">Reactietijd</div></div>
-  <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">Geen verplichtingen</div></div>
-  <div class="stat-item"><div class="stat-num">NL</div><div class="stat-label">Persoonlijke service</div></div>
-</div>
-
-<!-- ===== PRIJZEN SECTIE ===== -->
-<section id="prijzen" class="prijzen-section">
+<main>
   <div class="container">
-    <div class="prijzen-header">
-      <div class="update-note">Prijzen bijgewerkt: maart 2026 · Marktgemiddelde NL</div>
-      <p class="eyebrow">Actuele marktprijzen</p>
-      <h2 class="section-title">Wat kost een iPhone nu?</h2>
-      <p class="section-body">Klik op een opslagvariant om de prijs te zien. Wil je meer winkels vergelijken? Klik dan op de rode knop.</p>
-    </div>
-
-    <div class="edit-tip">
-      <strong>💡 Prijzen bijwerken?</strong>
-      <p>Zoek in de code naar <code>/* === PRIJZEN AANPASSEN === */</code> — daar staan alle prijzen op één plek overzichtelijk bij elkaar.</p>
-    </div>
-
-    <div class="model-tabs">
-      <button class="model-tab active" onclick="filterModels('all',this)">Alle modellen</button>
-      <button class="model-tab" onclick="filterModels('13',this)">iPhone 13</button>
-      <button class="model-tab" onclick="filterModels('14',this)">iPhone 14</button>
-      <button class="model-tab" onclick="filterModels('15',this)">iPhone 15</button>
-      <button class="model-tab" onclick="filterModels('16',this)">iPhone 16</button>
-      <button class="model-tab" onclick="filterModels('17',this)">iPhone 17</button>
-    </div>
-
-    <div class="models-grid" id="models-grid"></div>
-  </div>
-</section>
-
-<!-- HOE WERKT HET -->
-<section id="hoe-werkt-het" class="how-section">
-  <div class="container">
-    <div class="how-header">
-      <p class="eyebrow">Werkwijze</p>
-      <h2 class="section-title">Zo werkt KoopjeIphone</h2>
-      <p class="section-body" style="margin:0 auto;">Eerst een eerlijke indicatie van je huidige toestel, daarna zoek ik de beste opvolger binnen jouw budget.</p>
-    </div>
-    <div class="steps">
-      <div class="step"><div class="step-icon">📋</div><h3>Vertel wat je wilt</h3><p>Geef aan welke iPhone je zoekt en wat je maximaal wilt uitgeven. Inruilen kan ook.</p></div>
-      <div class="step"><div class="step-icon">🔍</div><h3>Ik vergelijk voor jou</h3><p>Ik check betrouwbare aanbieders en particuliere deals en filter de onzin eruit.</p></div>
-      <div class="step"><div class="step-icon">✅</div><h3>Jij kiest</h3><p>Je krijgt een voorstel met prijs en staat van het toestel. Geen verplichtingen.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- OVER MIJ -->
-<section id="over-mij" class="about-section">
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-visual">📱</div>
-      <div class="about-text">
-        <p class="eyebrow">Over mij</p>
-        <h2 class="section-title">Waarom KoopjeIphone?</h2>
-        <p class="section-body">Ik ben [jouw naam] en ik help mensen aan een goede iPhone voor een eerlijke prijs. Geen vage handel, maar duidelijke afspraken en transparante inruilwaarden.</p>
-        <ul class="trust-list">
-          <li>Heldere vaste inkoopprijzen, gebaseerd op model en batterij</li>
-          <li>Persoonlijk contact via WhatsApp of e-mail</li>
-          <li>Alleen nette toestellen – geen verborgen schade</li>
-          <li>Ook hulp bij het kiezen van je volgende iPhone</li>
+    <div class="grid">
+      <section>
+        <p class="eyebrow">Persoonlijke iPhone-zoekdienst</p>
+        <h1>Ik zoek de beste iPhone-deal voor jou.</h1>
+        <p class="hero-sub">
+          Jij geeft aan welke iPhone je wilt en wat je budget is, ik filter de onzin uit Marktplaats en webshops en kom terug met een duidelijk voorstel.
+        </p>
+        <ul class="mini-list">
+          <li>Rustige uitleg, geen verkooppraatjes</li>
+          <li>Altijd een indicatie van nieuwprijs ter vergelijking</li>
+          <li>Geen verplichtingen – jij beslist zelf</li>
         </ul>
-      </div>
+      </section>
+
+      <section id="aanvraag">
+        <div class="card">
+          <h2>Doe een aanvraag</h2>
+          <p class="card-sub">Vul kort in wat je zoekt. Ik reageer meestal binnen 1–2 dagen.</p>
+
+          <div id="form-wrapper">
+            <div class="form-grid">
+              <div class="form-group">
+                <label>Naam</label>
+                <input type="text" id="naam" placeholder="Jouw naam" />
+              </div>
+              <div class="form-group">
+                <label>E-mailadres</label>
+                <input type="email" id="email" placeholder="jij@email.nl" />
+              </div>
+              <div class="form-group">
+                <label>Telefoon (optioneel)</label>
+                <input type="tel" id="tel" placeholder="+31 6 ..." />
+              </div>
+              <div class="form-group">
+                <label>Voorkeur contact</label>
+                <select id="contact-voorkeur">
+                  <option value="">Maakt niet uit</option>
+                  <option>E-mail</option>
+                  <option>WhatsApp</option>
+                  <option>Bellen</option>
+                </select>
+              </div>
+              <div class="form-group full">
+                <label>Gewenst iPhone-model</label>
+                <select id="model">
+                  <option value="">Kies een model...</option>
+                  <option value="iphone-13">iPhone 13</option>
+                  <option value="iphone-13-pro">iPhone 13 Pro</option>
+                  <option value="iphone-14">iPhone 14</option>
+                  <option value="iphone-14-pro">iPhone 14 Pro</option>
+                  <option value="iphone-15">iPhone 15</option>
+                  <option value="iphone-15-pro">iPhone 15 Pro</option>
+                  <option value="iphone-16">iPhone 16</option>
+                  <option value="iphone-16-pro">iPhone 16 Pro</option>
+                  <option value="iphone-17">iPhone 17</option>
+                  <option value="iphone-17-pro">iPhone 17 Pro</option>
+                  <option value="onzeker">Weet ik nog niet precies</option>
+                </select>
+                <p class="ref-price" id="ref-price"></p>
+              </div>
+              <div class="form-group">
+                <label>Gewenste opslag</label>
+                <select id="opslag">
+                  <option value="">Maakt niet uit</option>
+                  <option>128 GB</option>
+                  <option>256 GB</option>
+                  <option>512 GB</option>
+                  <option>1 TB</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Maximaal budget</label>
+                <div class="euro-wrap">
+                  <span>€</span>
+                  <input type="number" id="budget" placeholder="bijv. 450" min="100" max="3000" />
+                </div>
+              </div>
+              <div class="form-group full">
+                <label>Extra wensen (optioneel)</label>
+                <textarea id="wensen" placeholder="Kleur, nieuw/refurbished, garantie, inruil, enz."></textarea>
+              </div>
+            </div>
+
+            <button class="submit-btn" type="button" onclick="submitForm()">Verstuur aanvraag</button>
+            <p class="form-note">Je gegevens gebruik ik alleen om op jouw aanvraag te reageren.</p>
+          </div>
+
+          <div class="success-msg" id="success-msg">
+            <div style="font-size:2.3rem;margin-bottom:0.6rem;">✅</div>
+            <p>Bedankt voor je aanvraag. Ik neem binnen 48 uur contact met je op met een voorstel.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="small-block">
+      <p>
+        De richtprijzen voor nieuwe toestellen zijn grove indicaties, gebaseerd op grote webshops in Nederland in 2026.
+        Ze zijn er alleen zodat je ongeveer ziet wat een nieuwe iPhone zou kosten – uiteindelijk gaat het om de deal die ik voor jou kan vinden.
+      </p>
     </div>
   </div>
-</section>
-
-<!-- AANVRAAGFORMULIER -->
-<section id="aanvraag" class="form-section">
-  <div class="container-sm">
-    <p class="eyebrow" style="text-align:center;">Aanvraag</p>
-    <h2 class="section-title" style="text-align:center;margin-bottom:0.5rem;">Welke iPhone zoek jij?</h2>
-    <p class="section-body" style="text-align:center;margin:0 auto 2rem;">Vul dit formulier in en ik zoek de beste deal voor je.</p>
-    <div class="form-card">
-      <div id="form-container">
-        <div class="form-grid">
-          <div class="form-group"><label>Naam</label><input type="text" id="naam" placeholder="Jan de Vries" /></div>
-          <div class="form-group"><label>E-mailadres</label><input type="email" id="email" placeholder="jan@email.nl" /></div>
-          <div class="form-group"><label>Telefoonnummer (optioneel)</label><input type="tel" id="tel" placeholder="+31 6 12 34 56 78" /></div>
-          <div class="form-group">
-            <label>Voorkeur contact</label>
-            <select id="contact-voorkeur"><option value="">Kies...</option><option>E-mail</option><option>WhatsApp</option><option>Bellen</option></select>
-          </div>
-          <div class="form-group">
-            <label>Gewenst model</label>
-            <select id="model">
-              <option value="">Kies een model...</option>
-              <option>iPhone 13</option><option>iPhone 13 Pro</option><option>iPhone 13 Pro Max</option>
-              <option>iPhone 14</option><option>iPhone 14 Pro</option><option>iPhone 14 Pro Max</option>
-              <option>iPhone 15</option><option>iPhone 15 Pro</option><option>iPhone 15 Pro Max</option>
-              <option>iPhone 16</option><option>iPhone 16 Pro</option><option>iPhone 16 Pro Max</option>
-              <option>iPhone 17</option><option>iPhone 17 Pro</option><option>iPhone 17 Pro Max</option>
-              <option>iPhone 17e</option><option>iPhone Air</option><option>Weet ik niet zeker</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Gewenste opslag</label>
-            <select id="opslag"><option value="">Maakt niet uit</option><option>128 GB</option><option>256 GB</option><option>512 GB</option><option>1 TB</option></select>
-          </div>
-          <div class="form-group full">
-            <label>Maximaal budget</label>
-            <div class="euro-wrap"><span>€</span><input type="number" id="budget" placeholder="400" min="100" max="2000" /></div>
-          </div>
-          <div class="form-group full">
-            <label>Extra wensen (optioneel)</label>
-            <textarea id="wensen" placeholder="Bijv. specifieke kleur, nieuw of refurbished, garantie gewenst..."></textarea>
-          </div>
-        </div>
-        <button class="submit-btn" onclick="submitForm()">Stuur mijn aanvraag</button>
-        <p class="form-note">🔒 Je gegevens worden nooit gedeeld met derden.</p>
-      </div>
-      <div class="success-msg" id="success-msg">
-        <div style="font-size:3rem;margin-bottom:1rem;">✅</div>
-        <h3>Aanvraag ontvangen!</h3>
-        <p>Bedankt! Ik ga voor je op zoek en neem binnen 48 uur contact met je op.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- INRUILWAARDE -->
-<section id="inruil" class="trade-section">
-  <div class="container-sm">
-    <p class="eyebrow" style="text-align:center;">Inruilwaarde</p>
-    <h2 class="section-title" style="text-align:center;margin-bottom:0.5rem;">Wat betaal ik voor jouw iPhone?</h2>
-    <p class="section-body" style="text-align:center;margin:0 auto 2rem;">Eerlijke indicatie op basis van model, opslag en batterijconditie.</p>
-    <div class="trade-card">
-      <div class="form-grid">
-        <div class="form-group">
-          <label>Model</label>
-          <select id="inruil-model">
-            <option value="">Kies model...</option>
-            <option value="13">iPhone 13</option><option value="13pro">iPhone 13 Pro</option>
-            <option value="14">iPhone 14</option><option value="14pro">iPhone 14 Pro</option>
-            <option value="14promax">iPhone 14 Pro Max</option><option value="15">iPhone 15</option>
-            <option value="15pro">iPhone 15 Pro</option><option value="16">iPhone 16</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Opslag</label>
-          <select id="inruil-opslag"><option value="128">128 GB</option><option value="256">256 GB</option></select>
-        </div>
-      </div>
-      <div class="form-group" style="margin-top:1rem;">
-        <label>Algemene staat</label>
-        <div class="condition-grid">
-          <button class="cond-btn" onclick="setCondition(this,'netjes')">Alles netjes</button>
-          <button class="cond-btn" onclick="setCondition(this,'gebruikssporen')">Lichte gebruikssporen</button>
-          <button class="cond-btn" onclick="setCondition(this,'schade')">Schade / barst</button>
-        </div>
-      </div>
-      <div class="form-group" style="margin-top:1.2rem;">
-        <label>Batterijconditie (%)</label>
-        <input type="number" id="battery-health" placeholder="Bijv. 84" min="60" max="100" />
-        <p style="font-size:0.75rem;color:var(--muted);margin-top:0.3rem;">Instellingen › Batterij › Batterijconditie</p>
-      </div>
-      <button class="submit-btn" onclick="calcDetailedTrade()" style="margin-top:1.2rem;">Bereken geschatte inruilwaarde</button>
-      <div class="value-result" id="value-result">
-        <div class="value-label">Geschatte inruilwaarde</div>
-        <div class="value-num" id="value-range">€ —</div>
-        <p class="value-sub" id="value-text">Vul alle velden in voor een indicatie.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="contact-section">
-  <div class="container">
-    <div class="contact-grid">
-      <div>
-        <p class="eyebrow">Contact</p>
-        <h2 class="section-title">Heb je een vraag?</h2>
-        <p class="section-body" style="margin-bottom:2rem;">Wil je jouw toestel laten beoordelen? Stuur foto's via WhatsApp of mail.</p>
-        <div class="contact-item"><div class="c-icon">📧</div><a href="mailto:info@koopjeiphone.nl">info@koopjeiphone.nl</a></div>
-        <div class="contact-item"><div class="c-icon">📱</div><a href="tel:+31612345678">+31 6 12 34 56 78</a></div>
-        <div class="contact-item"><div class="c-icon">💬</div><a href="https://wa.me/31612345678" target="_blank">WhatsApp mij direct</a></div>
-        <div class="contact-item"><div class="c-icon">📸</div><a href="https://www.instagram.com/verkoopjeiphone" target="_blank">Instagram: @verkoopjeiphone</a></div>
-      </div>
-      <div class="contact-form-card">
-        <div style="display:flex;flex-direction:column;gap:1rem;">
-          <div class="form-group"><label>Naam</label><input type="text" placeholder="Jouw naam" /></div>
-          <div class="form-group"><label>E-mail</label><input type="email" placeholder="jouw@email.nl" /></div>
-          <div class="form-group"><label>Bericht</label><textarea placeholder="Stel hier je vraag..."></textarea></div>
-        </div>
-        <button class="submit-btn" style="margin-top:0.8rem;" onclick="alert('Koppel dit formulier aan Formspree of je backend.')">Verstuur bericht</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="footer-logo">Koopje<span>iPhone</span></div>
-  <p>© 2026 KoopjeIphone · Persoonlijke iPhone-zoekdienst · Nederland</p>
-  <p style="margin-top:0.4rem;"><a href="https://www.instagram.com/verkoopjeiphone" target="_blank">Instagram: @verkoopjeiphone</a></p>
-</footer>
+</main>
 
 <script>
-/* === PRIJZEN AANPASSEN ===
-   Pas hier de prijzen aan per model en opslag.
-   Format: { '128': prijsInEuro, '256': prijsInEuro, '512': prijsInEuro, '1tb': prijsInEuro }
-   Gebruik null als een variant niet beschikbaar is.
-   Prijzen zijn marktgemiddelden NL, maart 2026.
-========================================= */
-const PRIJZEN = {
-  // iPhone 13 serie
-  'iphone-13':         { '128': 299, '256': 329, '512': 379 },
-  'iphone-13-mini':    { '128': 259, '256': 289, '512': null },
-  'iphone-13-pro':     { '128': 369, '256': 399, '512': 449, '1tb': 499 },
-  'iphone-13-pro-max': { '128': 409, '256': 439, '512': 489, '1tb': 549 },
+  /* === REFERENTIEPRIJZEN NIEUWE TOESTELLEN ===
+     Aanpassen kan hier eenvoudig.
+     Prijzen zijn indicaties “vanaf” voor nieuw in de winkel.
+  */
+  const REF_PRICES_NEW = {
+    "iphone-13":     699,
+    "iphone-13-pro": 899,
+    "iphone-14":     799,
+    "iphone-14-pro": 1049,
+    "iphone-15":     909,
+    "iphone-15-pro": 1199,
+    "iphone-16":     999,
+    "iphone-16-pro": 1299,
+    "iphone-17":     1099,
+    "iphone-17-pro": 1399
+  };
 
-  // iPhone 14 serie
-  'iphone-14':         { '128': 449, '256': 499, '512': 549 },
-  'iphone-14-plus':    { '128': 499, '256': 549, '512': 599 },
-  'iphone-14-pro':     { '128': 559, '256': 609, '512': 669, '1tb': 729 },
-  'iphone-14-pro-max': { '128': 609, '256': 659, '512': 719, '1tb': 779 },
+  const modelSelect = document.getElementById('model');
+  const refPriceEl  = document.getElementById('ref-price');
 
-  // iPhone 15 serie
-  'iphone-15':         { '128': 599, '256': 649, '512': 729 },
-  'iphone-15-plus':    { '128': 649, '256': 699, '512': 779 },
-  'iphone-15-pro':     { '256': 799, '512': 899, '1tb': 999 },
-  'iphone-15-pro-max': { '256': 899, '512': 999, '1tb': 1099 },
-
-  // iPhone 16 serie
-  'iphone-16':         { '128': 799, '256': 849, '512': 979 },
-  'iphone-16-plus':    { '128': 929, '256': 979, '512': 1109 },
-  'iphone-16-pro':     { '256': 1129, '512': 1259, '1tb': 1389 },
-  'iphone-16-pro-max': { '256': 1259, '512': 1389, '1tb': 1519 },
-  'iphone-16e':        { '128': 599, '256': 699, '512': null },
-
-  // iPhone 17 serie
-  'iphone-17':         { '256': 969, '512': 1099 },
-  'iphone-17-air':     { '256': 1099, '512': 1229 },
-  'iphone-17-pro':     { '256': 1229, '512': 1359, '1tb': 1489 },
-  'iphone-17-pro-max': { '256': 1359, '512': 1489, '1tb': 1619 },
-  'iphone-17e':        { '256': 719, '512': 849 },
-};
-
-/* === MODELLEN CONFIGURATIE === */
-const MODELLEN = [
-  // iPhone 13
-  { id:'iphone-13',         naam:'iPhone 13',         serie:'13', badge:'deal',    badgeLabel:'Deal',    tweakers:'Apple+iPhone+13' },
-  { id:'iphone-13-mini',    naam:'iPhone 13 mini',    serie:'13', badge:'deal',    badgeLabel:'Deal',    tweakers:'Apple+iPhone+13+mini' },
-  { id:'iphone-13-pro',     naam:'iPhone 13 Pro',     serie:'13', badge:'popular', badgeLabel:'Populair',tweakers:'Apple+iPhone+13+Pro' },
-  { id:'iphone-13-pro-max', naam:'iPhone 13 Pro Max', serie:'13', badge:'popular', badgeLabel:'Populair',tweakers:'Apple+iPhone+13+Pro+Max' },
-  // iPhone 14
-  { id:'iphone-14',         naam:'iPhone 14',         serie:'14', badge:'deal',    badgeLabel:'Deal',    tweakers:'Apple+iPhone+14' },
-  { id:'iphone-14-plus',    naam:'iPhone 14 Plus',    serie:'14', badge:'deal',    badgeLabel:'Deal',    tweakers:'Apple+iPhone+14+Plus' },
-  { id:'iphone-14-pro',     naam:'iPhone 14 Pro',     serie:'14', badge:'popular', badgeLabel:'Populair',tweakers:'Apple+iPhone+14+Pro' },
-  { id:'iphone-14-pro-max', naam:'iPhone 14 Pro Max', serie:'14', badge:'popular', badgeLabel:'Populair',tweakers:'Apple+iPhone+14+Pro+Max' },
-  // iPhone 15
-  { id:'iphone-15',         naam:'iPhone 15',         serie:'15', badge:'popular', badgeLabel:'Populair',tweakers:'Apple+iPhone+15' },
-  { id:'iphone-15-plus',    naam:'iPhone 15 Plus',    serie:'15', badge:'popular', badgeLabel:'Populair',tweakers:'Apple+iPhone+15+Plus' },
-  { id:'iphone-15-pro',     naam:'iPhone 15 Pro',     serie:'15', badge:'popular', badgeLabel:'Populair',tweakers:'Apple+iPhone+15+Pro' },
-  { id:'iphone-15-pro-max', naam:'iPhone 15 Pro Max', serie:'15', badge:'popular', badgeLabel:'Populair',tweakers:'Apple+iPhone+15+Pro+Max' },
-  // iPhone 16
-  { id:'iphone-16',         naam:'iPhone 16',         serie:'16', badge:'new',     badgeLabel:'Nieuw',   tweakers:'Apple+iPhone+16' },
-  { id:'iphone-16-plus',    naam:'iPhone 16 Plus',    serie:'16', badge:'new',     badgeLabel:'Nieuw',   tweakers:'Apple+iPhone+16+Plus' },
-  { id:'iphone-16-pro',     naam:'iPhone 16 Pro',     serie:'16', badge:'new',     badgeLabel:'Nieuw',   tweakers:'Apple+iPhone+16+Pro' },
-  { id:'iphone-16-pro-max', naam:'iPhone 16 Pro Max', serie:'16', badge:'new',     badgeLabel:'Nieuw',   tweakers:'Apple+iPhone+16+Pro+Max' },
-  { id:'iphone-16e',        naam:'iPhone 16e',        serie:'16', badge:'deal',    badgeLabel:'Instap',  tweakers:'Apple+iPhone+16e' },
-  // iPhone 17
-  { id:'iphone-17',         naam:'iPhone 17',         serie:'17', badge:'new',     badgeLabel:'Nieuwste',tweakers:'Apple+iPhone+17' },
-  { id:'iphone-17-air',     naam:'iPhone Air',        serie:'17', badge:'new',     badgeLabel:'Nieuwste',tweakers:'Apple+iPhone+Air' },
-  { id:'iphone-17-pro',     naam:'iPhone 17 Pro',     serie:'17', badge:'new',     badgeLabel:'Nieuwste',tweakers:'Apple+iPhone+17+Pro' },
-  { id:'iphone-17-pro-max', naam:'iPhone 17 Pro Max', serie:'17', badge:'new',     badgeLabel:'Nieuwste',tweakers:'Apple+iPhone+17+Pro+Max' },
-  { id:'iphone-17e',        naam:'iPhone 17e',        serie:'17', badge:'new',     badgeLabel:'Nieuwste',tweakers:'Apple+iPhone+17e' },
-];
-
-const OPSLAG_LABELS = { '128':'128 GB', '256':'256 GB', '512':'512 GB', '1tb':'1 TB' };
-const TWEAKERS_BASE = 'https://tweakers.net/pricewatch/zoeken/?keyword=';
-
-function buildCards() {
-  const grid = document.getElementById('models-grid');
-  grid.innerHTML = '';
-  MODELLEN.forEach(m => {
-    const prijzen = PRIJZEN[m.id];
-    const opslagen = Object.keys(prijzen).filter(k => prijzen[k] !== null);
-    const eersteOpslag = opslagen[0];
-
-    const card = document.createElement('div');
-    card.className = 'model-card visible';
-    card.dataset.serie = m.serie;
-
-    card.innerHTML = `
-      <div class="card-top">
-        <span class="model-name">${m.naam}</span>
-        <span class="model-badge badge-${m.badge}">${m.badgeLabel}</span>
-      </div>
-      <div class="storage-tabs">
-        ${opslagen.map((o,i) => `<button class="stab${i===0?' active':''}" onclick="selectOpslag(this,'${m.id}','${o}')">${OPSLAG_LABELS[o]}</button>`).join('')}
-      </div>
-      <div class="price-block" id="priceblock-${m.id}">
-        <div class="price-vanaf">Marktprijs vanaf</div>
-        <div class="price-main"><sup>€</sup>${prijzen[eersteOpslag]}<span style="font-size:1rem;font-weight:400;color:var(--muted)">,-</span></div>
-        <div class="price-sub">Marktgemiddelde Nederland · ${OPSLAG_LABELS[eersteOpslag]}</div>
-      </div>
-      <a class="btn-tweakers" href="${TWEAKERS_BASE}${m.tweakers}" target="_blank">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-        Vergelijk winkelprijzen op Tweakers
-      </a>
-      <p class="card-note">Prijzen van 30+ winkels · Altijd actueel</p>
-    `;
-    grid.appendChild(card);
-  });
-}
-
-function selectOpslag(btn, modelId, opslag) {
-  // Deactiveer andere tabs in dezelfde card
-  btn.closest('.storage-tabs').querySelectorAll('.stab').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-
-  const prijs = PRIJZEN[modelId][opslag];
-  const block = document.getElementById('priceblock-' + modelId);
-  block.querySelector('.price-main').innerHTML = `<sup>€</sup>${prijs}<span style="font-size:1rem;font-weight:400;color:var(--muted)">,-</span>`;
-  block.querySelector('.price-sub').textContent = `Marktgemiddelde Nederland · ${OPSLAG_LABELS[opslag]}`;
-}
-
-function filterModels(serie, btn) {
-  document.querySelectorAll('.model-tab').forEach(t => t.classList.remove('active'));
-  btn.classList.add('active');
-  document.querySelectorAll('.model-card').forEach(card => {
-    if (serie === 'all' || card.dataset.serie === serie) {
-      card.classList.add('visible');
-    } else {
-      card.classList.remove('visible');
+  modelSelect.addEventListener('change', function () {
+    const val = this.value;
+    if (!val || val === 'onzeker') {
+      refPriceEl.textContent = '';
+      return;
     }
+    const price = REF_PRICES_NEW[val];
+    if (!price) {
+      refPriceEl.textContent = '';
+      return;
+    }
+    refPriceEl.innerHTML =
+      'Richtprijs nieuw in de winkel: <span>€ ' +
+      price +
+      ',-</span> (indicatie, kan per winkel verschillen).';
   });
-}
 
-// Inruil
-let conditionFlag = null;
-function setCondition(btn, flag) {
-  document.querySelectorAll('.cond-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  conditionFlag = flag;
-}
+  function submitForm() {
+    const naam   = document.getElementById('naam').value.trim();
+    const email  = document.getElementById('email').value.trim();
+    const model  = document.getElementById('model').value;
+    const budget = document.getElementById('budget').value.trim();
 
-function calcDetailedTrade() {
-  const model = document.getElementById('inruil-model').value;
-  const storage = document.getElementById('inruil-opslag').value;
-  const battery = parseInt(document.getElementById('battery-health').value, 10);
-  if (!model) { alert('Kies een model.'); return; }
-  if (!battery || battery < 60 || battery > 100) { alert('Vul een geldige batterijconditie in (60–100%).'); return; }
-  if (!conditionFlag) { alert('Kies de staat van je toestel.'); return; }
+    if (!naam || !email || !model || !budget) {
+      alert('Vul minimaal naam, e-mail, model en budget in.');
+      return;
+    }
 
-  let base = calculateBasePrice(model, storage, battery, conditionFlag);
-  if (!base) { alert('Voor dit model heb ik nog geen vaste prijs ingesteld.'); return; }
-
-  let low = base - 10, high = base + 10;
-  if (conditionFlag === 'schade') { low = Math.round(base * 0.7); high = Math.round(base * 0.85); }
-
-  document.getElementById('value-range').textContent = `€ ${low} – € ${high}`;
-  document.getElementById('value-text').textContent = 'Definitieve prijs spreek ik met je af na foto\'s en een korte check.';
-  document.getElementById('value-result').classList.add('show');
-  document.getElementById('value-result').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-}
-
-function calculateBasePrice(model, storage, battery, cond) {
-  let price = 0;
-  const is256 = String(storage) === '256';
-  if (model === '13') { price = battery >= 80 ? 150 : battery >= 77 ? 125 : 100; if (is256) price += 25; }
-  if (model === '13pro') { price = battery < 80 ? 170 : 200; if (is256) price += 25; }
-  if (model === '14') { price = battery > 85 ? 200 : 180; if (is256) price += 25; }
-  if (model === '14pro') { price = battery < 80 ? 220 : 250; if (is256) price += 25; }
-  if (model === '14promax') { price = battery < 80 ? 240 : 275; if (is256) price += 25; }
-  if (model === '15') { price = battery >= 85 ? 300 : battery >= 80 ? 275 : 250; if (is256) price += 25; }
-  if (model === '15pro') { price = battery < 80 ? 310 : 350; if (is256) price += 25; }
-  if (model === '16') { price = battery < 80 ? 380 : 425; if (is256) price += 25; }
-  if (cond === 'gebruikssporen') price = Math.round(price * 0.95);
-  else if (cond === 'schade') price = Math.round(price * 0.8);
-  return price || null;
-}
-
-function submitForm() {
-  const naam = document.getElementById('naam').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const model = document.getElementById('model').value;
-  const budget = document.getElementById('budget').value;
-  if (!naam || !email || !model || !budget) { alert('Vul minimaal naam, e-mail, model en budget in.'); return; }
-  document.getElementById('form-container').style.display = 'none';
-  document.getElementById('success-msg').classList.add('show');
-}
-
-// Init
-buildCards();
+    // Hier kun je later een fetch/POST naar je backend of Formspree toevoegen.
+    document.getElementById('form-wrapper').style.display = 'none';
+    document.getElementById('success-msg').classList.add('show');
+  }
 </script>
 </body>
 </html>
