@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>KoopjeIphone – Ik wil een iPhone kopen</title>
-  //fonts.googleapis.com" />
-  //fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -156,14 +156,6 @@
       color: var(--text);
     }
 
-    .success {
-      display: none;
-      text-align: center;
-      padding: 2rem 0.5rem 1.2rem;
-      font-size: 0.95rem;
-    }
-    .success.show { display: block; }
-
     @media (max-width: 720px) {
       nav { padding: 0 1.1rem; }
       .shell { padding: 2rem 1.5rem 1.9rem; border-radius: 18px; }
@@ -191,23 +183,23 @@
     <form
       id="koop-form"
       class="form-grid"
-      action="https://formspree.io/f/KOOPFORMID"
+      action="https://formspree.io/f/xnjopzgw"
       method="POST"
     >
       <div class="form-group">
-        abel>Naam</label>
+        <label>Naam</label>
         <input type="text" name="naam" placeholder="Jouw naam" required />
       </div>
       <div class="form-group">
-        abel>E-mailadres</label>
+        <label>E-mailadres</label>
         <input type="email" name="email" placeholder="jij@email.nl" required />
       </div>
       <div class="form-group">
-        abel>Telefoon (optioneel)</label>
+        <label>Telefoon (optioneel)</label>
         <input type="tel" name="telefoon" placeholder="+31 6 ..." />
       </div>
       <div class="form-group">
-        abel>Voorkeur contact</label>
+        <label>Voorkeur contact</label>
         <select name="contactvoorkeur">
           <option value="">Maakt niet uit</option>
           <option>E-mail</option>
@@ -217,7 +209,7 @@
       </div>
 
       <div class="form-group full">
-        abel>Gewenst iPhone-model</label>
+        <label>Gewenst iPhone-model</label>
         <select name="model" id="model" required>
           <option value="">Kies een model...</option>
           <option value="iPhone 13">iPhone 13</option>
@@ -236,7 +228,7 @@
       </div>
 
       <div class="form-group">
-        abel>Gewenste opslag</label>
+        <label>Gewenste opslag</label>
         <select name="opslag">
           <option value="">Maakt niet uit</option>
           <option>128 GB</option>
@@ -246,7 +238,7 @@
         </select>
       </div>
       <div class="form-group">
-        abel>Maximaal budget</label>
+        <label>Maximaal budget</label>
         <div class="euro-wrap">
           <span>€</span>
           <input type="number" name="budget" placeholder="bijv. 450" min="100" max="3000" required />
@@ -254,11 +246,10 @@
       </div>
 
       <div class="form-group full">
-        abel>Extra wensen (optioneel)</label>
+        <label>Extra wensen (optioneel)</label>
         <textarea name="wensen" placeholder="Kleur, nieuw/refurbished, garantie, inruil, enz."></textarea>
       </div>
 
-      <!-- verborgen veld voor Formspree redirect/onderwerp, optioneel -->
       <input type="hidden" name="_subject" value="Nieuwe koop-aanvraag via KoopjeIphone" />
       <input type="hidden" name="_language" value="nl" />
 
@@ -301,9 +292,4 @@
     refPriceEl.innerHTML =
       'Richtprijs nieuw in de winkel: <span>€ ' +
       price +
-      ',-</span> (indicatie, per winkel verschillend).';
-  });
-</script>
-
-</body>
-</html>
+      ',-</span>
