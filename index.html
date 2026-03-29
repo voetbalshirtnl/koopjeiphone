@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VerkoopjeiPhone – Kopen of Verkopen</title>
+  <title>VerkoopjeiPhone – Slim kopen of cashen</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
@@ -108,12 +108,7 @@
       border: 1px solid rgba(148,163,184,0.35);
       box-shadow: 0 12px 30px rgba(15,23,42,0.12);
     }
-    .hero-logo-wrap img {
-      width: 48px;
-      height: 48px;
-      object-fit: contain;
-      display: block;
-    }
+    .hero-logo-wrap span { font-size: 32px; }
 
     .eyebrow {
       font-size: 0.72rem;
@@ -130,7 +125,7 @@
       margin-bottom: 0.4rem;
     }
     .hero-sub {
-      font-size: 0.94rem;
+      font-size: 0.96rem;
       color: var(--muted);
       max-width: 520px;
       margin: 0 auto 1.6rem;
@@ -209,46 +204,50 @@
     <div class="nav-logo">Verkoopje<span>iPhone</span></div>
   </div>
   <div class="nav-links">
-    <a href="https://wa.me/31630576584" target="_blank">WhatsApp</a>
-    <a href="https://www.instagram.com/verkoopjeiphone" target="_blank">Instagram</a>
+    <a href="https://wa.me/31630576584" target="_blank" rel="noopener">WhatsApp</a>
+    <a href="https://www.instagram.com/verkoopjeiphone" target="_blank" rel="noopener">Instagram</a>
   </div>
 </nav>
 
 <main>
   <section class="hero">
     <div class="hero-inner">
-
       <div class="hero-logo-wrap">
-        <!-- pas de bestandsnaam aan naar jouw logo-bestand -->
-        <img src="logo-verkoopjeiphone.png" alt="VerkoopjeiPhone logo">
+        <span>📱</span>
       </div>
-
-      <p class="eyebrow">Welkom bij VerkoopjeiPhone</p>
-      <h1>iPhone kopen of verkopen?</h1>
+      <div class="eyebrow">Slim verkopen of upgraden</div>
+      <h1>Verkoop of koop je iPhone zonder gezeur</h1>
       <p class="hero-sub">
-        Kies hieronder uw doel. In de volgende stap vult u kort de gegevens in en ontvangt u een passend voorstel.
+        Snel een eerlijk bod op je huidige iPhone, of een scherp geprijsd toestel terugkopen.
+        Geen gedoe met advertenties, wel direct contact en duidelijke afspraken.
       </p>
 
       <div class="hero-actions">
-        <a href="/koopjeiphone/kopen.html" class="btn btn-primary">
-          Ik wil een iPhone kopen
+        <!-- Interne pagina: verkopen -->
+        <a class="btn btn-primary" href="verkopen.html">
+          iPhone verkopen
         </a>
 
-        <a href="/koopjeiphone/verkopen.html" class="btn btn-secondary">
-          Ik wil mijn iPhone verkopen
+        <!-- Interne pagina: kopen -->
+        <a class="btn btn-secondary" href="kopen.html">
+          iPhone kopen
         </a>
       </div>
 
       <p class="hero-meta">
-        Duidelijke afspraken en eerlijke prijzen, zonder kleine lettertjes.
+        Werkgebied: Randstad &amp; omstreken · Contant of Tikkie · Afspraak op een openbare plek
       </p>
     </div>
   </section>
 </main>
 
 <footer>
-  © 2026 VerkoopjeiPhone · Nederland
+  © <span id="year"></span> VerkoopjeiPhone. Alle rechten voorbehouden.
 </footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
