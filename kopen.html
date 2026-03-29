@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>KoopjeIphone – Ik wil een iPhone kopen</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  //fonts.googleapis.com" />
+  //fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -187,108 +187,113 @@
       en kom terug met een voorstel dat past bij je budget.
     </p>
 
-    <div id="koop-form-wrapper">
-      <div class="form-grid">
-        <div class="form-group">
-          <label>Naam</label>
-          <input type="text" id="naam" placeholder="Jouw naam" />
-        </div>
-        <div class="form-group">
-          <label>E-mailadres</label>
-          <input type="email" id="email" placeholder="jij@email.nl" />
-        </div>
-        <div class="form-group">
-          <label>Telefoon (optioneel)</label>
-          <input type="tel" id="tel" placeholder="+31 6 ..." />
-        </div>
-        <div class="form-group">
-          <label>Voorkeur contact</label>
-          <select id="contact">
-            <option value="">Maakt niet uit</option>
-            <option>E-mail</option>
-            <option>WhatsApp</option>
-            <option>Bellen</option>
-          </select>
-        </div>
+    <!-- Formspree formulier -->
+    <form
+      id="koop-form"
+      class="form-grid"
+      action="https://formspree.io/f/KOOPFORMID"
+      method="POST"
+    >
+      <div class="form-group">
+        abel>Naam</label>
+        <input type="text" name="naam" placeholder="Jouw naam" required />
+      </div>
+      <div class="form-group">
+        abel>E-mailadres</label>
+        <input type="email" name="email" placeholder="jij@email.nl" required />
+      </div>
+      <div class="form-group">
+        abel>Telefoon (optioneel)</label>
+        <input type="tel" name="telefoon" placeholder="+31 6 ..." />
+      </div>
+      <div class="form-group">
+        abel>Voorkeur contact</label>
+        <select name="contactvoorkeur">
+          <option value="">Maakt niet uit</option>
+          <option>E-mail</option>
+          <option>WhatsApp</option>
+          <option>Bellen</option>
+        </select>
+      </div>
 
-        <div class="form-group full">
-          <label>Gewenst iPhone-model</label>
-          <select id="model">
-            <option value="">Kies een model...</option>
-            <option value="iphone-13">iPhone 13</option>
-            <option value="iphone-13-pro">iPhone 13 Pro</option>
-            <option value="iphone-14">iPhone 14</option>
-            <option value="iphone-14-pro">iPhone 14 Pro</option>
-            <option value="iphone-15">iPhone 15</option>
-            <option value="iphone-15-pro">iPhone 15 Pro</option>
-            <option value="iphone-16">iPhone 16</option>
-            <option value="iphone-16-pro">iPhone 16 Pro</option>
-            <option value="iphone-17">iPhone 17</option>
-            <option value="iphone-17-pro">iPhone 17 Pro</option>
-            <option value="onzeker">Weet ik niet precies</option>
-          </select>
-          <p class="ref-price" id="ref-price"></p>
-        </div>
+      <div class="form-group full">
+        abel>Gewenst iPhone-model</label>
+        <select name="model" id="model" required>
+          <option value="">Kies een model...</option>
+          <option value="iPhone 13">iPhone 13</option>
+          <option value="iPhone 13 Pro">iPhone 13 Pro</option>
+          <option value="iPhone 14">iPhone 14</option>
+          <option value="iPhone 14 Pro">iPhone 14 Pro</option>
+          <option value="iPhone 15">iPhone 15</option>
+          <option value="iPhone 15 Pro">iPhone 15 Pro</option>
+          <option value="iPhone 16">iPhone 16</option>
+          <option value="iPhone 16 Pro">iPhone 16 Pro</option>
+          <option value="iPhone 17">iPhone 17</option>
+          <option value="iPhone 17 Pro">iPhone 17 Pro</option>
+          <option value="Onzeker">Weet ik niet precies</option>
+        </select>
+        <p class="ref-price" id="ref-price"></p>
+      </div>
 
-        <div class="form-group">
-          <label>Gewenste opslag</label>
-          <select id="opslag">
-            <option value="">Maakt niet uit</option>
-            <option>128 GB</option>
-            <option>256 GB</option>
-            <option>512 GB</option>
-            <option>1 TB</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Maximaal budget</label>
-          <div class="euro-wrap">
-            <span>€</span>
-            <input type="number" id="budget" placeholder="bijv. 450" min="100" max="3000" />
-          </div>
-        </div>
-
-        <div class="form-group full">
-          <label>Extra wensen (optioneel)</label>
-          <textarea id="wensen" placeholder="Kleur, nieuw/refurbished, garantie, inruil, enz."></textarea>
+      <div class="form-group">
+        abel>Gewenste opslag</label>
+        <select name="opslag">
+          <option value="">Maakt niet uit</option>
+          <option>128 GB</option>
+          <option>256 GB</option>
+          <option>512 GB</option>
+          <option>1 TB</option>
+        </select>
+      </div>
+      <div class="form-group">
+        abel>Maximaal budget</label>
+        <div class="euro-wrap">
+          <span>€</span>
+          <input type="number" name="budget" placeholder="bijv. 450" min="100" max="3000" required />
         </div>
       </div>
 
-      <button class="submit-btn" type="button" onclick="submitForm()">Verstuur mijn aanvraag</button>
-      <p class="note">Richtprijzen zijn indicatief. Je krijgt altijd een duidelijke uitleg bij mijn voorstel.</p>
-    </div>
+      <div class="form-group full">
+        abel>Extra wensen (optioneel)</label>
+        <textarea name="wensen" placeholder="Kleur, nieuw/refurbished, garantie, inruil, enz."></textarea>
+      </div>
 
-    <div class="success" id="success-msg">
-      <div style="font-size:2.3rem;margin-bottom:0.6rem;">✅</div>
-      <p>Bedankt voor je aanvraag. Ik neem binnen 48 uur contact met je op met een voorstel.</p>
-    </div>
+      <!-- verborgen veld voor Formspree redirect/onderwerp, optioneel -->
+      <input type="hidden" name="_subject" value="Nieuwe koop-aanvraag via KoopjeIphone" />
+      <input type="hidden" name="_language" value="nl" />
+
+      <div class="form-group full">
+        <button class="submit-btn" type="submit">Verstuur mijn aanvraag</button>
+        <p class="note">Richtprijzen zijn indicatief. Je krijgt altijd een duidelijke uitleg bij mijn voorstel.</p>
+      </div>
+    </form>
   </div>
 </main>
 
 <script>
   const REF_PRICES_NEW = {
-    "iphone-13":     699,
-    "iphone-13-pro": 899,
-    "iphone-14":     799,
-    "iphone-14-pro": 1049,
-    "iphone-15":     909,
-    "iphone-15-pro": 1199,
-    "iphone-16":     999,
-    "iphone-16-pro": 1299,
-    "iphone-17":     1099,
-    "iphone-17-pro": 1399
+    "iPhone 13": 699,
+    "iPhone 13 Pro": 899,
+    "iPhone 14": 799,
+    "iPhone 14 Pro": 1049,
+    "iPhone 15": 909,
+    "iPhone 15 Pro": 1199,
+    "iPhone 16": 999,
+    "iPhone 16 Pro": 1299,
+    "iPhone 17": 1099,
+    "iPhone 17 Pro": 1399
   };
 
   const modelSelect = document.getElementById('model');
   const refPriceEl  = document.getElementById('ref-price');
 
   modelSelect.addEventListener('change', function () {
-    const val = this.value;
-    if (!val || val === 'onzeker') {
+    const label = this.value;
+    if (!label || label === 'Onzeker') {
       refPriceEl.textContent = '';
       return;
     }
-    const price = REF_PRICES_NEW[val];
+    const price = REF_PRICES_NEW[label];
     if (!price) {
       refPriceEl.textContent = '';
       return;
@@ -298,21 +303,6 @@
       price +
       ',-</span> (indicatie, per winkel verschillend).';
   });
-
-  function submitForm() {
-    const naam   = document.getElementById('naam').value.trim();
-    const email  = document.getElementById('email').value.trim();
-    const model  = document.getElementById('model').value;
-    const budget = document.getElementById('budget').value.trim();
-
-    if (!naam || !email || !model || !budget) {
-      alert('Vul minimaal naam, e-mail, model en budget in.');
-      return;
-    }
-
-    document.getElementById('koop-form-wrapper').style.display = 'none';
-    document.getElementById('success-msg').classList.add('show');
-  }
 </script>
 
 </body>
