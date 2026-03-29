@@ -54,12 +54,10 @@
       letter-spacing: -0.03em;
     }
     .nav-logo span { color: #38bdf8; }
-
     .nav-tagline {
       font-size: 0.75rem;
       color: rgba(226,232,240,0.75);
     }
-
     .nav-links {
       display: flex;
       gap: 0.9rem;
@@ -103,7 +101,6 @@
       position: relative;
       overflow: hidden;
     }
-
     .hero::after {
       content: "";
       position: absolute;
@@ -177,12 +174,11 @@
       background: rgba(255,255,255,0.96);
       border-radius: 20px;
       border: 1px solid rgba(148,163,184,0.35);
-      padding: 1.6rem 1.7rem 1.4rem;
+      padding: 1.7rem 1.8rem 1.5rem;
       box-shadow:
         0 18px 48px rgba(15,23,42,0.18),
         0 0 0 1px rgba(255,255,255,0.8) inset;
     }
-
     .form-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -203,10 +199,10 @@
       font-size: 0.8rem;
     }
     input, select, textarea {
-      border-radius: 10px;
+      border-radius: 12px;
       border: 1px solid rgba(15,23,42,0.12);
-      padding: 0.65rem 0.9rem;
-      font-size: 0.9rem;
+      padding: 0.8rem 0.95rem;
+      font-size: 0.96rem;
       background: #f9fafb;
       color: var(--text);
       outline: none;
@@ -216,14 +212,29 @@
       border-color: var(--blue);
       background: #eef4ff;
     }
-    textarea { resize: vertical; min-height: 80px; }
+    textarea { resize: vertical; min-height: 100px; }
+
+    .range {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 0.4rem;
+      min-height: 1.2em;
+    }
+    .range span {
+      font-weight: 500;
+      color: var(--text);
+    }
+    .hint {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
 
     .submit-btn {
       margin-top: 0.9rem;
       width: 100%;
-      border-radius: 10px;
+      border-radius: 12px;
       border: none;
-      padding: 0.8rem 1rem;
+      padding: 0.85rem 1rem;
       background: linear-gradient(135deg, #2563eb, #4f46e5);
       color: #f9fafb;
       font-size: 0.9rem;
@@ -238,22 +249,6 @@
       font-size: 0.78rem;
       color: rgba(15,23,42,0.7);
       text-align: center;
-    }
-
-    .range {
-      font-size: 0.8rem;
-      color: var(--muted);
-      margin-top: 0.4rem;
-      min-height: 1.2em;
-    }
-    .range span {
-      font-weight: 500;
-      color: var(--text);
-    }
-
-    .hint {
-      font-size: 0.78rem;
-      color: var(--muted);
     }
 
     .success {
